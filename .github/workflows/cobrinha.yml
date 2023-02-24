@@ -32,7 +32,8 @@ jobs:
         run: |
           git config --local user.email "talissoneloia@gmail.com"
           git config --local user.name "Talisson Eloia"
-          git commit -a -m "Add changes"
+          git add .
+          git commit -m "Add changes"
           
       # Para as atualizações.
       - name: Push changes
