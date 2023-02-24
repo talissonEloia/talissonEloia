@@ -28,13 +28,18 @@ jobs:
           svg_out_path: dist/github-contribution-grid-snake.svg
 
       - run: git status
-
+      - name: Commit files
+        run: |
+          git config --local user.email "talissoneloia@gmail.com"
+          git config --local user.name "Talisson Eloia"
+          git commit -a -m "Add changes"
+          
       # Para as atualizações.
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TALISSON_TOKEN }}
-          branch: master
+          branch: main
           force: true
 
       - uses: crazy-max/ghaction-github-pages@v2.1.3
@@ -43,4 +48,4 @@ jobs:
           target_branch: output
           build_dir: dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TALISSON_TOKEN }}
